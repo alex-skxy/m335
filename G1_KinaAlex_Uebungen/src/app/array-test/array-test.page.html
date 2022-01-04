@@ -1,6 +1,9 @@
 <app-nav-menu-header [pageName]="'array-test'"></app-nav-menu-header>
 
 <ion-content>
-  <ion-text>{{ JSON.stringify(fruechte) }} </ion-text>
-
+  <ion-list>
+    <ion-item *ngFor="let fruecht of fruechte">
+      {{fruecht.name  }}
+    </ion-item>
+  </ion-list>
 </ion-content>

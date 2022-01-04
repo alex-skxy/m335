@@ -11,8 +11,6 @@ export class ArrayTestPage implements OnInit {
     {name: 'Banane'},
     {name: 'Apfel'},
   ];
-  private JSON = window.JSON;
-
 
   constructor() {
   }
