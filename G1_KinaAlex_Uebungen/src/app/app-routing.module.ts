@@ -1,7 +1,5 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {NavigationDetailComponent} from './navigation-detail/navigation-detail.component';
-import {NavigationComponent} from './navigation/navigation.component';
 
 const routes: Routes = [
   {
@@ -11,11 +9,19 @@ const routes: Routes = [
   },
   {
     path: 'navigation',
-    component: NavigationComponent
+    loadChildren: () => import('./navigation/navigation.module').then(m => m.NavigationPageModule)
   },
   {
     path: 'navigation-detail',
-    component: NavigationDetailComponent
+    loadChildren: () => import('./navigation-detail/navigation-detail.module').then(m => m.NavigationDetailPageModule)
+  },
+  {
+    path: 'test/numbers',
+    loadChildren: () => import('./numbers-test/numbers-test.module').then(m => m.NumbersTestPageModule)
+  },
+  {
+    path: 'test/string',
+    loadChildren: () => import('./string-test/string-test.module').then( m => m.StringTestPageModule)
   }
 ];
 
