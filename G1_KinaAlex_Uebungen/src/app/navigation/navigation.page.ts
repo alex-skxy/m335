@@ -15,6 +15,6 @@ export class NavigationPage implements OnInit {
   }
 
   async openNavigationDetail() {
-    await this.router.navigateByUrl('/navigation-detail');
+    await this.router.navigate(['/navigation-detail', {previousPage: this.router.url}]);
   }
 }

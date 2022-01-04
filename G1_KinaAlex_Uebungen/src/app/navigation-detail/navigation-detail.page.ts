@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation-detail',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationDetailPage implements OnInit {
 
-  constructor() { }
+  public previousPage: string;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
+  ngOnInit() {
+    this.previousPage = this.route.snapshot.paramMap.get('previousPage');
+    console.log(this.previousPage);
+  }
+
+  async goBack() {
+    await this.router.navigateByUrl(this.previousPage);
+  }
 }

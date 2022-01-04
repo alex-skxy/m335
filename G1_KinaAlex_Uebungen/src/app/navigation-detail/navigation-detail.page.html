@@ -1,4 +1,13 @@
-<app-nav-menu-header [pageName]="'navigation-detail'"></app-nav-menu-header>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>navigation-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
   <p>hello world from navigation detail</p>
