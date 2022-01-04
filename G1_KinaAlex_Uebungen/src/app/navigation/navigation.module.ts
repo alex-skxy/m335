@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { NavigationPageRoutingModule } from './navigation-routing.module';
 
 import { NavigationPage } from './navigation.page';
+import {NavMenuHeaderComponent} from '../nav-menu-header/nav-menu-header.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { NavigationPage } from './navigation.page';
     IonicModule,
     NavigationPageRoutingModule
   ],
-  declarations: [NavigationPage]
+  exports: [
+    NavMenuHeaderComponent
+  ],
+  declarations: [NavigationPage, NavMenuHeaderComponent]
 })
 export class NavigationPageModule {}
