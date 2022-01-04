@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'data-binding',
     loadChildren: () => import('./data-binding/data-binding.module').then( m => m.DataBindingPageModule)
+  },
+  {
+    path: 'calculator',
+    loadChildren: () => import('./calculator/calculator.module').then( m => m.CalculatorPageModule)
   }
 ];
 
