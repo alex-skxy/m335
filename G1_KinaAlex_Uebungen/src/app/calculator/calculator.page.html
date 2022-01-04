@@ -6,23 +6,23 @@
         <ion-item>
           <ion-label color="medium" position="stacked"><span>{{firstNumber}} {{action}} {{secondNumber}}</span>
             <span [hidden]="!result"> = {{result}}</span></ion-label>
-          <ion-input #mainInput (focusout)="mainInput.setFocus()" [(ngModel)]="input" (keypress)="numericOnly($event)"
+          <ion-input #input (keypress)="numericOnly($event)"
                      inputmode="numeric" type="number"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="onAction('+')" expand="block">+</ion-button>
+        <ion-button (click)="onAction(input.value, '+')" expand="block">+</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onAction('-')" expand="block">-</ion-button>
+        <ion-button (click)="onAction(input.value, '-')" expand="block">-</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onAction('*')" expand="block">*</ion-button>
+        <ion-button (click)="onAction(input.value, '*')" expand="block">*</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onAction('-')" expand="block">/</ion-button>
+        <ion-button (click)="onAction(input.value, '/')" expand="block">/</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -30,7 +30,7 @@
         <ion-button (click)="onClear()" color="danger" expand="block">C</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onEnter()" color="success" expand="block">E</ion-button>
+        <ion-button (click)="onEnter(input.value)" color="success" expand="block">E</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>

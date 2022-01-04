@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {IonInput} from '@ionic/angular';
 
 @Component({
   selector: 'app-calculator',
@@ -6,8 +7,10 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./calculator.page.scss'],
 })
 export class CalculatorPage implements OnInit {
+  @ViewChild(IonInput) input: IonInput;
+
   readonly actions = {
-    '+': (a, b) => a + b,
+    '+': (a, b) => (a - 0) + (b - 0),
     '-': (a, b) => a - b,
     '*': (a, b) => a * b,
     '/': (a, b) => a / b,
@@ -16,7 +19,6 @@ export class CalculatorPage implements OnInit {
   firstNumber: number;
   secondNumber: number;
   action;
-  input: number;
   label: string;
   result: number;
 
@@ -26,26 +28,30 @@ export class CalculatorPage implements OnInit {
   ngOnInit() {
   }
 
-  onAction(action) {
-    this.firstNumber = this.input;
+  async onAction(nr: number, action) {
+    this.firstNumber = nr;
     this.action = action;
     this.secondNumber = undefined;
-    this.input = undefined;
+    this.input.value = undefined;
     this.result = undefined;
+
+    await this.input.setFocus();
   }
 
-  onClear() {
+  async onClear() {
     this.firstNumber = undefined;
     this.secondNumber = undefined;
-    this.input = undefined;
+    this.input.value = undefined;
     this.action = undefined;
     this.result = undefined;
+    await this.input.setFocus();
   }
 
-  onEnter() {
-    this.secondNumber = this.input;
+  async onEnter(nr: number) {
+    this.secondNumber = nr;
     this.result = this.actions[this.action](this.firstNumber, this.secondNumber);
-    this.input = this.result;
+    this.input.value = this.result;
+    await this.input.setFocus();
   }
 
   // copy pasted from https://stackoverflow.com/a/64809213 :)
