@@ -1,0 +1,7 @@
+{
+  "name": "G1_KinaAlex_Uebungen",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
