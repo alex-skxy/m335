@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'test/numbers',
     loadChildren: () => import('./numbers-test/numbers-test.module').then(m => m.NumbersTestPageModule)
+  },
+  {
+    path: 'test/string',
+    loadChildren: () => import('./string-test/string-test.module').then( m => m.StringTestPageModule)
   }
 ];
 

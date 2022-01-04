@@ -10,6 +10,7 @@ export class AppComponent {
     {title: 'Navigation', url: '/navigation', icon: 'compass'},
     {title: 'NavigationDetail', url: '/navigation-detail', icon: 'paper-plane'},
     {title: 'NumbersTest', url: '/test/numbers', icon: 'calculator'},
+    {title: 'StringTest', url: '/test/string', icon: 'text'},
   ];
 
   constructor() {
