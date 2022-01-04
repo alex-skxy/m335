@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'test/objects',
     loadChildren: () => import('./objects-test/objects-test.module').then(m => m.ObjectsTestPageModule)
+  },
+  {
+    path: 'test/array',
+    loadChildren: () => import('./array-test/array-test.module').then(m => m.ArrayTestPageModule)
   }
 ];
 

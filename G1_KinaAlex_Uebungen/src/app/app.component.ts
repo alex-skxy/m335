@@ -12,6 +12,7 @@ export class AppComponent {
     {title: 'NumbersTest', url: '/test/numbers', icon: 'calculator'},
     {title: 'StringTest', url: '/test/string', icon: 'text'},
     {title: 'ObjectsTest', url: '/test/objects', icon: 'basketball'},
+    {title: 'ArrayTest', url: '/test/array', icon: 'pricetags'},
   ];
 
   constructor() {
