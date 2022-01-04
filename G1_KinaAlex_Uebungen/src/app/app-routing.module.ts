@@ -21,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'test/string',
-    loadChildren: () => import('./string-test/string-test.module').then( m => m.StringTestPageModule)
+    loadChildren: () => import('./string-test/string-test.module').then(m => m.StringTestPageModule)
+  },
+  {
+    path: 'test/objects',
+    loadChildren: () => import('./objects-test/objects-test.module').then(m => m.ObjectsTestPageModule)
   }
 ];
 
