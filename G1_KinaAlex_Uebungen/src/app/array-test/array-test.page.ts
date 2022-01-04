@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-array-test',
@@ -6,8 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./array-test.page.scss'],
 })
 export class ArrayTestPage implements OnInit {
+  fruechte: any[] = [
+    {name: 'Orange'},
+    {name: 'Banane'},
+    {name: 'Apfel'},
+  ];
+  private JSON = window.JSON;
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
