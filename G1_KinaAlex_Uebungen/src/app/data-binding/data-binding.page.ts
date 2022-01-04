@@ -14,4 +14,9 @@ export class DataBindingPage implements OnInit {
   ngOnInit() {
   }
 
+  // copy pasted from https://stackoverflow.com/a/64809213 :)
+  numericOnly($event: KeyboardEvent) {
+    const pattern = /^([0-9])$/;
+    return pattern.test($event.key);
+  }
 }

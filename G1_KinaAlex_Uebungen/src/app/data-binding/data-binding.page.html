@@ -13,7 +13,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Age</ion-label>
-        <ion-input [(ngModel)]="user.age" type="number"></ion-input>
+        <ion-input (keypress)="numericOnly($event)" inputmode="numeric" [(ngModel)]="user.age" type="number"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
