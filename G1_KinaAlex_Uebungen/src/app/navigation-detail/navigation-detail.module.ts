@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { NavigationDetailPageRoutingModule } from './navigation-detail-routing.module';
 
 import { NavigationDetailPage } from './navigation-detail.page';
+import {NavigationPageModule} from '../navigation/navigation.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NavigationDetailPageRoutingModule
+    NavigationDetailPageRoutingModule,
+    NavigationPageModule
   ],
   declarations: [NavigationDetailPage]
 })
