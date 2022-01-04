@@ -1,4 +1,36 @@
 <app-nav-menu-header [pageName]="'calculator'"></app-nav-menu-header>
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked"><span>{{firstNumber}} {{action}} {{secondNumber}}</span>
+            <span [hidden]="!result">= {{result}}</span></ion-label>
+          <ion-input [(ngModel)]="input" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onAdd()" expand="block">+</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onSubtract()" expand="block">-</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onMultiply()" expand="block">*</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onDivide()" expand="block">/</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="onClear()" color="danger" expand="block">C</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onEnter()" color="success" expand="block">E</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
