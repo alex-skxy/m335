@@ -13,6 +13,7 @@ export class AppComponent {
     {title: 'StringTest', url: '/test/string', icon: 'text'},
     {title: 'ObjectsTest', url: '/test/objects', icon: 'basketball'},
     {title: 'ArrayTest', url: '/test/array', icon: 'pricetags'},
+    {title: 'DataBinding', url: '/data-binding', icon: 'git-compare'},
   ];
 
   constructor() {
