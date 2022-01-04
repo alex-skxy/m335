@@ -4,24 +4,25 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="stacked"><span>{{firstNumber}} {{action}} {{secondNumber}}</span>
-            <span [hidden]="!result">= {{result}}</span></ion-label>
-          <ion-input [(ngModel)]="input" type="number"></ion-input>
+          <ion-label color="medium" position="stacked"><span>{{firstNumber}} {{action}} {{secondNumber}}</span>
+            <span [hidden]="!result"> = {{result}}</span></ion-label>
+          <ion-input #mainInput (focusout)="mainInput.setFocus()" [(ngModel)]="input" (keypress)="numericOnly($event)"
+                     inputmode="numeric" type="number"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="onAdd()" expand="block">+</ion-button>
+        <ion-button (click)="onAction('+')" expand="block">+</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onSubtract()" expand="block">-</ion-button>
+        <ion-button (click)="onAction('-')" expand="block">-</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onMultiply()" expand="block">*</ion-button>
+        <ion-button (click)="onAction('*')" expand="block">*</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="onDivide()" expand="block">/</ion-button>
+        <ion-button (click)="onAction('-')" expand="block">/</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
