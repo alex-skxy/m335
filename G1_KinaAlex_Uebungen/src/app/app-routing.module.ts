@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'navigation-detail',
     loadChildren: () => import('./navigation-detail/navigation-detail.module').then(m => m.NavigationDetailPageModule)
+  },
+  {
+    path: 'test/numbers',
+    loadChildren: () => import('./numbers-test/numbers-test.module').then(m => m.NumbersTestPageModule)
   }
 ];
 
