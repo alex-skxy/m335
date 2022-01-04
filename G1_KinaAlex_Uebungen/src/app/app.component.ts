@@ -15,6 +15,7 @@ export class AppComponent {
     {title: 'ArrayTest', url: '/test/array', icon: 'pricetags'},
     {title: 'DataBinding', url: '/data-binding', icon: 'git-compare'},
     {title: 'Calculator', url: '/calculator', icon: 'calculator'},
+    {title: 'Filters/Piper', url: '/filters', icon: 'filter'},
   ];
 
   constructor() {
