@@ -4,8 +4,9 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label color="medium" position="stacked"><span>{{firstNumber}} {{action}} {{secondNumber}}</span>
-            <span [hidden]="!result"> = {{result}}</span></ion-label>
+          <ion-label color="medium" position="stacked">
+            <span>{{equation.firstNr}} {{equation.action}} {{equation.secondNr}}</span>
+            <span [hidden]="!equation.result"> = {{equation.result}}</span></ion-label>
           <ion-input #input (keypress)="numericOnly($event)"
                      inputmode="numeric" type="number"></ion-input>
         </ion-item>

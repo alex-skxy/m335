@@ -16,11 +16,14 @@ export class CalculatorPage implements OnInit {
     '/': (a, b) => a / b,
   };
 
-  firstNumber: number;
-  secondNumber: number;
-  action;
+  equation: any = {
+    firstNr: undefined,
+    secondNr: undefined,
+    action: undefined,
+    result: undefined
+  };
+
   label: string;
-  result: number;
 
   constructor() {
   }
@@ -29,28 +32,31 @@ export class CalculatorPage implements OnInit {
   }
 
   async onAction(nr: number, action) {
-    this.firstNumber = nr;
-    this.action = action;
-    this.secondNumber = undefined;
+    this.equation = {
+      ...this.equation,
+      firstNr: nr, action,
+      secondNr: undefined, result: undefined
+    };
     this.input.value = undefined;
-    this.result = undefined;
 
     await this.input.setFocus();
+    console.log(this.equation);
   }
 
   async onClear() {
-    this.firstNumber = undefined;
-    this.secondNumber = undefined;
+    this.equation = {};
     this.input.value = undefined;
-    this.action = undefined;
-    this.result = undefined;
     await this.input.setFocus();
   }
 
   async onEnter(nr: number) {
-    this.secondNumber = nr;
-    this.result = this.actions[this.action](this.firstNumber, this.secondNumber);
-    this.input.value = this.result;
+    this.equation = {
+      ...this.equation,
+      secondNr: nr,
+    };
+    this.equation.result = this.actions[this.equation.action](this.equation.firstNr, this.equation.secondNr);
+    console.log(this.equation);
+    this.input.value = this.equation.result;
     await this.input.setFocus();
   }
 
