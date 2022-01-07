@@ -1,0 +1,7 @@
+{
+  "name": "AlexKina_KoFinder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
