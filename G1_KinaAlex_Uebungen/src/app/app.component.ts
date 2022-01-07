@@ -17,6 +17,7 @@ export class AppComponent {
     {title: 'Calculator', url: '/calculator', icon: 'calculator'},
     {title: 'Filters/Pipes', url: '/filters', icon: 'filter'},
     {title: 'Alerts', url: '/alerts', icon: 'alert-circle'},
+    {title: 'Newsletter', url: '/newsletter', icon: 'newspaper'},
   ];
 
   constructor() {
