@@ -8,4 +8,12 @@
       </ion-button>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-header>The button has been pressed {{pressCount}} times</ion-header>
+    <ion-card-content>
+      <ion-button (press)="onPress()">
+        Press!
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

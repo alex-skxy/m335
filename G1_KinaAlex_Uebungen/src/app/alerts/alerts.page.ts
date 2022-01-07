@@ -8,6 +8,7 @@ import {AlertController} from '@ionic/angular';
 })
 export class AlertsPage implements OnInit {
   nickname: string;
+  pressCount = 0;
 
   constructor(private alertController: AlertController) {
   }
@@ -45,5 +46,10 @@ export class AlertsPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  onPress() {
+    console.log('press');
+    this.pressCount++;
   }
 }

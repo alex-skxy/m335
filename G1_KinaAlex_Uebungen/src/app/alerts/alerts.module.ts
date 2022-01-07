@@ -8,6 +8,7 @@ import { AlertsPageRoutingModule } from './alerts-routing.module';
 
 import { AlertsPage } from './alerts.page';
 import {NavigationPageModule} from '../navigation/navigation.module';
+import {HammerModule} from '@angular/platform-browser';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {NavigationPageModule} from '../navigation/navigation.module';
     FormsModule,
     IonicModule,
     AlertsPageRoutingModule,
-    NavigationPageModule
+    NavigationPageModule,
+    HammerModule
   ],
   declarations: [AlertsPage]
 })
