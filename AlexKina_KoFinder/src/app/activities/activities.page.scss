@@ -1,5 +1,19 @@
-.card-image{
+.card-image {
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+.card-list-item {
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 4px 16px 0;
+}
+
+.card-list {
+  padding: 5px;
+  background-color: var(--ion-background-color);
+}
+
+ion-fab {
+  bottom: 65px;
 }
