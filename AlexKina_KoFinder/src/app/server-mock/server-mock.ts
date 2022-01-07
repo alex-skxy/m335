@@ -28,7 +28,9 @@ export class ServerMock {
     {
       id: '1',
       title: 'coffee',
+      description: 'we go for coffe :3',
       type: {name: 'coffee', icon: 'cafe'},
+      time: Date.now().toString(),
       status: Status.SUGGESTION,
       people: [{person: this.people[0], status: 'good to go'}, {person: this.people[2], status: 'cant :('}]
     }
