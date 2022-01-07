@@ -16,6 +16,9 @@ import {TabNavComponent} from '../tab-nav/tab-nav.component';
     IonicModule,
     ActivitiesPageRoutingModule
   ],
+  exports: [
+    TabNavComponent
+  ],
   declarations: [ActivitiesPage, TabNavComponent]
 })
 export class ActivitiesPageModule {}

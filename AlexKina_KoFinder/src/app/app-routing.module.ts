@@ -11,6 +11,14 @@ const routes: Routes = [
     path: 'activities',
     loadChildren: () => import('./activities/activities.module').then(m => m.ActivitiesPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsPageModule)
+  },
+  {
+    path: 'schedules',
+    loadChildren: () => import('./schedules/schedules.module').then(m => m.SchedulesPageModule)
+  },
 ];
 
 @NgModule({
