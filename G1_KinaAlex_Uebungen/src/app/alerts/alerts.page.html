@@ -1,9 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Alerts</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-nav-menu-header [pageName]="'alerts'"></app-nav-menu-header>
 <ion-content>
-
+  <ion-card>
+    <ion-card-header [hidden]="!nickname">Ich liebe es {{nickname}} genannt zu werden!</ion-card-header>
+    <ion-card-content>
+      <ion-button (click)="showAlert()">
+        Nickname erfassen
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
