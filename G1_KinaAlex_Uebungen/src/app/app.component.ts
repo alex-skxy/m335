@@ -16,6 +16,7 @@ export class AppComponent {
     {title: 'DataBinding', url: '/data-binding', icon: 'git-compare'},
     {title: 'Calculator', url: '/calculator', icon: 'calculator'},
     {title: 'Filters/Pipes', url: '/filters', icon: 'filter'},
+    {title: 'Alerts', url: '/alerts', icon: 'alert-circle'},
   ];
 
   constructor() {
