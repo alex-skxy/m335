@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>filters</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-nav-menu-header [pageName]="'filters'"></app-nav-menu-header>
 <ion-content>
-
+  <ion-list>
+    <ion-item>
+      {{ 'HeLlO WorLD' | lowercase }}
+    </ion-item>
+    <ion-item>
+      {{ 'HeLlO WorLD' | uppercase }}
+    </ion-item>
+    <ion-item>
+      {{ time | date }}
+    </ion-item>
+  </ion-list>
 </ion-content>
