@@ -8,13 +8,14 @@ import { ActivitiesPageRoutingModule } from './activities-routing.module';
 
 import { ActivitiesPage } from './activities.page';
 import {TabNavComponent} from '../tab-nav/tab-nav.component';
+import {HammerModule} from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ActivitiesPageRoutingModule
+    ActivitiesPageRoutingModule,
   ],
   exports: [
     TabNavComponent
