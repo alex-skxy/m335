@@ -27,4 +27,9 @@ export class ArrayTestPage implements OnInit {
   ngOnInit() {
   }
 
+  delete(fruecht: any) {
+    console.log(fruecht + 'will be deleted');
+    this.fruechte.splice(this.fruechte.findIndex(f => f.name === fruecht.name), 1);
+    console.log(this.fruechte);
+  }
 }
