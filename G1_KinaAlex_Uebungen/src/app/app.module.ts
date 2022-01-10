@@ -6,26 +6,27 @@ import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {AngularFireModule} from '@angular/fire/compat';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
-import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
-import {AngularFireAuthModule} from '@angular/fire/compat/auth';
-import {environment} from '../environments/environment';
-import {AngularFireAuthGuardModule} from '@angular/fire/compat/auth-guard';
 import {IonicStorageModule} from "@ionic/storage-angular";
+// AngularFire2 importieren
+import {environment} from '../environments/environment';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireModule} from "@angular/fire/compat";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HammerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireAuthGuardModule,
     IonicStorageModule.forRoot()
   ],
-  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
+  providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}, StatusBar,
+    SplashScreen,
+    {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {

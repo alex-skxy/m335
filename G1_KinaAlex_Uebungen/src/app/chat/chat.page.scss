@@ -97,3 +97,7 @@
     background: var(--ion-color-primary) !important;
   }
 }
+
+ion-content {
+  overflow-y: hidden;
+}
