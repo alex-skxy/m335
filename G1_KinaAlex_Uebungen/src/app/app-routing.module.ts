@@ -102,6 +102,10 @@ const routes: Routes = [
     loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomePageModule),
     canActivate: [AngularFireAuthGuard],
     data: {authGuardPipe: redirectUnauthorizedToLogin}
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   }
 ];
 
