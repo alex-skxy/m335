@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label position="floating">Email
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required="true" formControlName="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password
+        <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required="true" formControlName="password" type="password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit" [disabled]="form.invalid">
+      Login
+    </ion-button>
+    <ion-button expand="block" fill="outline" color="secondary" type="submit" (click)="register()">
+      No account? Register
+    </ion-button>
+  </form>
+</ion-content>

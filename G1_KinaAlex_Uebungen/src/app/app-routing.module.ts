@@ -50,6 +50,14 @@ const routes: Routes = [
   {
     path: 'newsletter',
     loadChildren: () => import('./newsletter/newsletter.module').then( m => m.NewsletterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 
