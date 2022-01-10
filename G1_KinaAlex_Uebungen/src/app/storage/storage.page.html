@@ -1,0 +1,22 @@
+<app-nav-menu-header [pageName]="'storage'"></app-nav-menu-header>
+
+<ion-content>
+  <form [formGroup]="storageForm" (ngSubmit)="save()">
+    <ion-item>
+      <ion-label position="floating">Key
+      </ion-label>
+      <ion-input required="true" formControlName="key" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Value
+      </ion-label>
+      <ion-input required="true" formControlName="value" type="text"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" type="submit" [disabled]="storageForm.invalid">
+      Save
+    </ion-button>
+  </form>
+  <ion-label>
+    {{db}}
+  </ion-label>
+</ion-content>

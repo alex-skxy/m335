@@ -90,6 +90,18 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule),
     canActivate: [AngularFireAuthGuard],
     data: {authGuardPipe: redirectLoggedInToRoot}
+  },
+  {
+    path: 'storage',
+    loadChildren: () => import('./storage/storage.module').then(m => m.StoragePageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomePageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedToLogin}
   }
 ];
 

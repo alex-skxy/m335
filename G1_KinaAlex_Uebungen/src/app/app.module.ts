@@ -12,6 +12,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/compat/database';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import {environment} from '../environments/environment';
 import {AngularFireAuthGuardModule} from '@angular/fire/compat/auth-guard';
+import {IonicStorageModule} from "@ionic/storage-angular";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,9 @@ import {AngularFireAuthGuardModule} from '@angular/fire/compat/auth-guard';
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireAuthGuardModule],
+    AngularFireAuthGuardModule,
+    IonicStorageModule.forRoot()
+  ],
   providers: [{provide: RouteReuseStrategy, useClass: IonicRouteStrategy}],
   bootstrap: [AppComponent],
 })
