@@ -9,22 +9,22 @@ import {AuthService} from '../_services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  form: FormGroup;
+  loginForm: FormGroup;
 
   constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
+    this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl()
     });
   }
 
-  login() {
-    this.authService.loginWithEmailAndPassword({
-      email: this.form.get('email').value,
-      password: this.form.get('password').value,
+  async login() {
+    await this.authService.loginWithEmailAndPassword({
+      email: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value,
     });
   }
 

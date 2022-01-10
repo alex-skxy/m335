@@ -9,7 +9,7 @@ import {AuthService} from '../_services/auth.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  form: FormGroup;
+  registerForm: FormGroup;
   private previousPage: string;
 
 
@@ -17,7 +17,7 @@ export class RegisterPage implements OnInit {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
+    this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.min(6)]),
     });
@@ -31,8 +31,8 @@ export class RegisterPage implements OnInit {
 
   async register() {
     await this.authService.createUserWithEmailAndPassword({
-      email: this.form.get('email').value,
-      password: this.form.get('password').value
+      email: this.registerForm.get('email').value,
+      password: this.registerForm.get('password').value
     });
     this.router.navigateByUrl('/login');
   }
