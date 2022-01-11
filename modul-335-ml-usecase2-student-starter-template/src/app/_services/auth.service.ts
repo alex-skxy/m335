@@ -16,16 +16,18 @@ export class AuthService {
             await this.afAuth.signInWithEmailAndPassword(user.email, user.password)
             await this.navCtrl.navigateForward('/gallerie')
         } catch (e) {
-            await this.toast.create({message: `Could not log in. ${e}`, color: 'danger'});
+            await this.toast.create({message: `Could not log in. ${e}`, color: 'danger'}).then(t => t.present);
         }
     }
 
     async createUserWithEmailAndPassword(user: User, redirectToURL?: string) {
         try {
-            await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
-            // TODO: save username
+            const res = await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
+            if (res) {
+                await (await this.afAuth.currentUser).updateProfile({displayName: user.displayname})
+            }
         } catch (e) {
-            await this.toast.create({message: `Could not log register. ${e}`, color: 'danger'})
+            await this.toast.create({message: `Could not log register. ${e}`, color: 'danger'}).then(t => t.present);
         }
     }
 
