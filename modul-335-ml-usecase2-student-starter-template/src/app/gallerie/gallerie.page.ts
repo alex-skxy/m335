@@ -1,25 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/compat/database';
-import { AlertController } from '@ionic/angular';
-import { Gallerie } from "../_types/gallerie";
+import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
+import {AlertController} from '@ionic/angular';
+import {Gallerie} from "../_types/gallerie";
 
 @Component({
-  selector: 'app-gallerie',
-  templateUrl: './gallerie.page.html',
-  styleUrls: ['./gallerie.page.scss'],
+    selector: 'app-gallerie',
+    templateUrl: './gallerie.page.html',
+    styleUrls: ['./gallerie.page.scss'],
 })
 export class GalleriePage implements OnInit {
 
-  groupNumber: string =  'G0'; // Bsp. G1
+    groupNumber: string = 'G0'; // Bsp. G1
+    private galleryListRef: AngularFireList<Gallerie>;
+    galleryList: Observable<Gallerie[]>;
 
 
-  constructor(public alertCtrl: AlertController,afDb: AngularFireDatabase) {
-   //TODO: Gallerie holen und zuweisen
-  }
+    constructor(public alertCtrl: AlertController, afDb: AngularFireDatabase) {
+        this.galleryListRef = afDb.list('/gallerie/' + this.groupNumber);
+        this.galleryList = this.galleryListRef.valueChanges();
+    }
 
-
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
