@@ -11,7 +11,7 @@ import {Gallerie} from "../_types/gallerie";
 })
 export class GalleriePage implements OnInit {
 
-    groupNumber: string = 'G0'; // Bsp. G1
+    groupNumber: string = 'G1'; // Bsp. G1
     private galleryListRef: AngularFireList<Gallerie>;
     galleryList: Observable<Gallerie[]>;
 
