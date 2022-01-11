@@ -8,8 +8,8 @@ import {Platform} from '@ionic/angular';
 })
 export class AppComponent {
     public appPages = [
-        {url: '/gallerie', icon: 'images', title: 'Gallerie'},
-        {url: '/ferienorte', icon: 'airplane', title: 'Ferienorte'}
+        {url: '/gallerie', icon: 'images', title: 'Gallerie', color:'tertiary'},
+        {url: '/ferienorte', icon: 'airplane', title: 'Ferienorte', color:'danger'}
     ];
 
     constructor(
