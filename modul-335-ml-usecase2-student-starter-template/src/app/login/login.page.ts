@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
     }
 
     ngOnInit() {
-        // TODO: Evt. Willkommensseite darstellen
     }
 
     async doLogin(user: User) {

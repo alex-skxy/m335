@@ -5,8 +5,6 @@ import {WillkommenGuard} from "./_guards/willkommen.guard";
 
 // TODO: Standardverhalten definieren
 
-// TODO: Willkommen Guard
-
 // TODO: Routes schützen inkl. AuthGuard oder AngularFireAuthGuard definieren
 const routes: Routes = [
     {
