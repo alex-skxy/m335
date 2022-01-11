@@ -6,6 +6,11 @@
                     <ion-title>Use Case 2</ion-title>
                 </ion-toolbar>
             </ion-header>
+            <ion-footer>
+                <ion-toolbar>
+                    <ion-button (click)="logout()" fill="outline">Logout</ion-button>
+                </ion-toolbar>
+            </ion-footer>
             <ion-content>
                 <ion-list>
                     <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">

@@ -34,7 +34,7 @@ export class AuthService {
         return this.afAuth.currentUser !== null;
     }
 
-    logout() {
-        //TODO: Logout
+    async logout() {
+        await this.afAuth.signOut();
     }
 }
