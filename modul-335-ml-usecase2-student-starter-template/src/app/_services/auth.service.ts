@@ -38,5 +38,6 @@ export class AuthService {
 
     async logout() {
         await this.afAuth.signOut();
+        await this.navCtrl.navigateForward('/login');
     }
 }
