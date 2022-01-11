@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, MenuController} from '@ionic/angular';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
 import {Ferienort} from "../_types/ferienort";
@@ -16,12 +16,16 @@ export class FerienortePage implements OnInit {
     ferienortList: Observable<unknown[]>;
 
 
-    constructor(public alertCtrl: AlertController, afDb: AngularFireDatabase) {
+    constructor(public alertCtrl: AlertController, afDb: AngularFireDatabase, private menuCtrl: MenuController) {
         this.ferienortListRef = afDb.list('/ferienorte/' + this.groupNumber);
         this.ferienortList = this.ferienortListRef.valueChanges();
     }
 
     ngOnInit() {
+    }
+
+    ionViewWillEnter() {
+        this.menuCtrl.enable(true);
     }
 
     async addFerienort() {

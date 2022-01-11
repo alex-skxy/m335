@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, MenuController} from '@ionic/angular';
 import {User} from '../_types/user';
 import {Router} from '@angular/router';
 import {AuthService} from "../_services/auth.service";
@@ -16,12 +16,16 @@ export class LoginPage implements OnInit {
     constructor(
         private alertCtrl: AlertController,
         private router: Router,
-        private authService: AuthService
+        private authService: AuthService, private menuCtrl: MenuController
     ) {
 
     }
 
     ngOnInit() {
+    }
+
+    ionViewWillEnter() {
+        this.menuCtrl.enable(false);
     }
 
     async doLogin(user: User) {

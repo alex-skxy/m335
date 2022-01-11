@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertController, ToastController} from '@ionic/angular';
+import {AlertController, MenuController, ToastController} from '@ionic/angular';
 import {User} from '../_types/user';
 import {Router} from '@angular/router';
 import {AuthService} from "../_services/auth.service";
@@ -17,7 +17,12 @@ export class RegistrierungPage implements OnInit {
                 private alertCtrl: AlertController,
                 private toast: ToastController,
                 private authService: AuthService
+        , private menuCtrl: MenuController
     ) {
+    }
+
+    ionViewWillEnter() {
+        this.menuCtrl.enable(false);
     }
 
     ngOnInit() {
