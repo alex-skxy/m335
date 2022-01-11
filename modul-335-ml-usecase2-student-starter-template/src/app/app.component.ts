@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {Platform} from '@ionic/angular';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+    selector: 'app-root',
+    templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  // TODO: App Pages
-  public appPages = [
+    public appPages = [
+        {url: '/gallerie', icon: 'images', title: 'Gallerie'},
+        {url: '/ferienorte', icon: 'airplane', title: 'Ferienorte'}
+    ];
 
-  ];
+    constructor(
+        private platform: Platform,
+    ) {
+        this.initializeApp();
+    }
 
-  constructor(
-    private platform: Platform,
-  ) {
-    this.initializeApp();
-  }
+    initializeApp() {
 
-  initializeApp() {
-
-  }
+    }
 }
