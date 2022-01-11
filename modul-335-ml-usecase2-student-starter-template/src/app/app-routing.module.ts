@@ -2,10 +2,11 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LogoutComponent} from './logout/logout.page';
 import {WillkommenGuard} from "./_guards/willkommen.guard";
+import {AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo,} from "@angular/fire/compat/auth-guard";
 
-// TODO: Standardverhalten definieren
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(["login"]);
+const redirectLoggedInToRoot = () => redirectLoggedInTo(["gallerie"]);
 
-// TODO: Routes schützen inkl. AuthGuard oder AngularFireAuthGuard definieren
 const routes: Routes = [
     {
         path: '',
@@ -15,22 +16,25 @@ const routes: Routes = [
     {
         path: 'ferienorte',
         loadChildren: () => import('./ferienorte/ferienorte.module').then(m => m.FerienortePageModule),
-
+        canActivate: [AngularFireAuthGuard],
+        data: {authGuardPipe: redirectUnauthorizedToLogin},
     },
     {
         path: 'gallerie',
         loadChildren: () => import('./gallerie/gallerie.module').then(m => m.GalleriePageModule),
-
+        canActivate: [AngularFireAuthGuard],
+        data: {authGuardPipe: redirectUnauthorizedToLogin},
     },
     {
         path: 'login',
         loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule),
-
+        canActivate: [AngularFireAuthGuard],
+        data: {authGuardPipe: redirectLoggedInToRoot},
     },
     {
         path: 'registrierung',
         loadChildren: () => import('./registrierung/registrierung.module').then(m => m.RegistrierungPageModule),
-
+        canActivate: [AngularFireAuthGuard],
     },
     {
         path: 'willkommen',
