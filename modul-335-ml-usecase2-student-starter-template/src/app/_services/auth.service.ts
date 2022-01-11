@@ -1,38 +1,40 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { User } from '../_types/user';
-import { NavController, ToastController } from '@ionic/angular';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/compat/auth';
+import {User} from '../_types/user';
+import {NavController, ToastController} from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth, private navCtrl: NavController, private toast: ToastController) { }
+    constructor(private afAuth: AngularFireAuth, private navCtrl: NavController, private toast: ToastController) {
+    }
 
-  async loginWithEmailAndPassword (user: User, redirectToURL?: string) {
-    try {
-      //TODO: Login mit Firebase 
+    async loginWithEmailAndPassword(user: User, redirectToURL?: string) {
+        try {
+            await this.afAuth.signInWithEmailAndPassword(user.email, user.password)
+            await this.navCtrl.navigateForward('/gallerie')
+        } catch (e) {
+            await this.toast.create({message: `Could not log in. ${e}`, color: 'danger'});
+        }
     }
-    catch(e) {
-      //TODO: Toast anzeigen
-    }
-  }
 
-  async createUserWithEmailAndPassword (user: User, redirectToURL?: string) {
-    try {
-      //TODO: Registrierung mit Firebase
+    async createUserWithEmailAndPassword(user: User, redirectToURL?: string) {
+        try {
+            await this.afAuth.createUserWithEmailAndPassword(user.email, user.password);
+            // TODO: save username
+        } catch (e) {
+            await this.toast.create({message: `Could not log register. ${e}`, color: 'danger'})
+        }
     }
-    catch(e) {
-      //TODO: Toast anzeigen
+
+    // Returns true if user is logged in
+    get authenticated(): boolean {
+        return this.afAuth.currentUser !== null;
     }
-  }
-  // Returns true if user is logged in
-  get authenticated(): boolean {
-    return this.afAuth.currentUser !== null;
-  }
-  
-  logout() {
-    //TODO: Logout
-  }
+
+    logout() {
+        //TODO: Logout
+    }
 }
